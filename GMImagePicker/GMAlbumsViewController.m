@@ -236,7 +236,11 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.collectionsFetchResultsAssets.count;
+    if (self.picker.showCollections) {
+        return self.collectionsFetchResultsAssets.count;
+    } else {
+        return MIN(self.collectionsFetchResultsAssets.count, 1);
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

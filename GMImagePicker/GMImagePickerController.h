@@ -196,6 +196,8 @@ static CGSize const kPopoverContentSize = {480, 720};
 
 @property (nonatomic) NSTimeInterval maximumVideoDuration;
 
+@property (nonatomic) BOOL showCollections;
+
 
 @end
 

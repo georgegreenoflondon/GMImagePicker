@@ -22,6 +22,7 @@
     if (self = [super init]) {
         _selectedAssets = [[NSMutableArray alloc] init];
         
+        
         // Default values:
         _displaySelectionInfoToolbar = YES;
         _displayAlbumsNumberOfAssets = YES;
@@ -29,6 +30,7 @@
         _allowsMultipleSelection = YES;
         _confirmSingleSelection = NO;
         _showCameraButton = NO;
+        _showCollections = YES;
         
         // Grid configuration:
         _colsInPortrait = 3;
@@ -151,7 +153,7 @@
             [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"picker.confirm.title",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class],  @"Are You Sure?")]
                                         message:message
                                        delegate:self
-                              cancelButtonTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"picker.action.no",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class],  @"No")]
+                              cancelButtonTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"picker.action.no",  ƒ@"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class],  @"No")]
                               otherButtonTitles:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"picker.action.yes",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class],  @"Yes")], nil] show];
         } else {
             [self finishPickingAssets:self];
