@@ -146,7 +146,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     if (self.picker.maximumVideoDuration > 0) {
         maxVideoDuration = self.picker.maximumVideoDuration;
     }
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(mediaType in %@) AND (creationDate >= %@) AND (duration <= %@)", self.picker.mediaTypes, minimumCreatedDate, maxVideoDuration];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(mediaType in %@) AND (creationDate >= %@) AND (duration <= %f)", self.picker.mediaTypes, minimumCreatedDate, maxVideoDuration];
     
     //All album: Sorted by descending creation date.
     NSMutableArray *allFetchResultArray = [[NSMutableArray alloc] init];
