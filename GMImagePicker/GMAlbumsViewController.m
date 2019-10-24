@@ -140,7 +140,7 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     
     NSPredicate *predicate;
     if (self.picker.minimumCreatedDate) {
-        predicate = [NSPredicate predicateWithFormat:@"(mediaType in %@) AND (createdDate >= %@)", self.picker.mediaTypes, self.picker.minimumCreatedDate];
+        predicate = [NSPredicate predicateWithFormat:@"(mediaType in %@) AND (creationDate >= %@)", self.picker.mediaTypes, self.picker.minimumCreatedDate];
     } else {
         predicate = [NSPredicate predicateWithFormat:@"mediaType in %@", self.picker.mediaTypes];
     }
