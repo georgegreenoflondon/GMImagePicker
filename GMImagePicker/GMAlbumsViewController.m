@@ -138,12 +138,15 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     PHFetchResult *topLevelUserCollections = [self.collectionsFetchResults objectAtIndex:0];
     PHFetchResult *smartAlbums = [self.collectionsFetchResults objectAtIndex:1];
     
-    NSPredicate *predicate;
+    NSDate *minimumCreatedDate = [NSDate dateWithTimeIntervalSince1970: 0];
     if (self.picker.minimumCreatedDate) {
-        predicate = [NSPredicate predicateWithFormat:@"(mediaType in %@) AND (creationDate >= %@)", self.picker.mediaTypes, self.picker.minimumCreatedDate];
-    } else {
-        predicate = [NSPredicate predicateWithFormat:@"mediaType in %@", self.picker.mediaTypes];
+        minimumCreatedDate = self.picker.minimumCreatedDate;
     }
+    NSTimeInterval maxVideoDuration = CGFLOAT_MAX;
+    if (self.picker.maximumVideoDuration > 0) {
+        maxVideoDuration = self.picker.maximumVideoDuration;
+    }
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(mediaType in %@) AND (creationDate >= %@) AND (duration <= %@)", self.picker.mediaTypes, minimumCreatedDate, maxVideoDuration];
     
     //All album: Sorted by descending creation date.
     NSMutableArray *allFetchResultArray = [[NSMutableArray alloc] init];

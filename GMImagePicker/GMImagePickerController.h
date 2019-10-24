@@ -194,6 +194,8 @@ static CGSize const kPopoverContentSize = {480, 720};
 
 @property (nonatomic) NSDate *minimumCreatedDate;
 
+@property (nonatomic) NSTimeInterval maximumVideoDuration;
+
 
 @end
 
