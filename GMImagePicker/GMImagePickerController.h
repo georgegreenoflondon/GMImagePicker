@@ -187,6 +187,14 @@ static CGSize const kPopoverContentSize = {480, 720};
 - (void)dismiss:(id)sender;
 - (void)finishPickingAssets:(id)sender;
 
+
+/**
+ *  @name Filtering Results
+ */
+
+@property (nonatomic) NSDate *minimumCreatedDate;
+
+
 @end
 
 
@@ -319,8 +327,5 @@ static CGSize const kPopoverContentSize = {480, 720};
  *
  */
 - (void)assetsPickerController:(GMImagePickerController *)picker didUnhighlightAsset:(PHAsset *)asset;
-
-
-
 
 @end
